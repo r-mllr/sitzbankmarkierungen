@@ -1,0 +1,60 @@
+========== INITIALIZATION ==========
+Warming up --------------------------------------
+          OpenStruct   131.597k i/100ms
+               Class   251.245k i/100ms
+              Struct   261.789k i/100ms
+                Hash   561.203k i/100ms
+Calculating -------------------------------------
+          OpenStruct      1.624M (±17.0%) i/s -      7.501M in   5.026666s
+               Class      2.336M (±11.8%) i/s -     11.557M in   5.041294s
+              Struct      2.981M (±11.3%) i/s -     14.660M in   5.033238s
+                Hash      5.894M (±21.0%) i/s -     27.499M in   5.053351s
+
+Comparison:
+                Hash:  5894393.7 i/s
+              Struct:  2981034.8 i/s - 1.98x  (± 0.00) slower
+               Class:  2335931.1 i/s - 2.52x  (± 0.00) slower
+          OpenStruct:  1623829.1 i/s - 3.63x  (± 0.00) slower
+
+=============== READ ===============
+Warming up --------------------------------------
+          OpenStruct     1.288M i/100ms
+               Class     2.413M i/100ms
+              Struct     2.468M i/100ms
+          Hash.fetch     1.651M i/100ms
+          Hash[:key]     2.471M i/100ms
+            Hash.dig     2.094M i/100ms
+Calculating -------------------------------------
+          OpenStruct     13.572M (± 4.9%) i/s -     68.278M in   5.043483s
+               Class     25.211M (± 7.1%) i/s -    125.498M in   5.005951s
+              Struct     23.764M (± 5.8%) i/s -    120.913M in   5.107560s
+          Hash.fetch     15.372M (±16.4%) i/s -     74.297M in   5.008268s
+          Hash[:key]     25.544M (± 7.6%) i/s -    128.496M in   5.064133s
+            Hash.dig     19.199M (± 8.1%) i/s -     96.329M in   5.055640s
+
+Comparison:
+          Hash[:key]: 25544195.4 i/s
+               Class: 25210981.9 i/s - same-ish: difference falls within error
+              Struct: 23764017.6 i/s - same-ish: difference falls within error
+            Hash.dig: 19198714.2 i/s - 1.33x  (± 0.00) slower
+          Hash.fetch: 15371562.9 i/s - 1.66x  (± 0.00) slower
+          OpenStruct: 13571804.8 i/s - 1.88x  (± 0.00) slower
+
+============== WRITE ===============
+Warming up --------------------------------------
+          OpenStruct   432.794k i/100ms
+               Class   742.880k i/100ms
+              Struct   747.721k i/100ms
+                Hash   660.255k i/100ms
+Calculating -------------------------------------
+          OpenStruct      4.285M (±12.2%) i/s -     21.207M in   5.113472s
+               Class      7.345M (±12.4%) i/s -     36.401M in   5.039156s
+              Struct      6.661M (±14.2%) i/s -     32.900M in   5.049681s
+                Hash      6.504M (±15.3%) i/s -     31.032M in   5.080630s
+
+Comparison:
+               Class:  7344994.4 i/s
+              Struct:  6661023.3 i/s - same-ish: difference falls within error
+                Hash:  6504244.4 i/s - same-ish: difference falls within error
+          OpenStruct:  4285373.8 i/s - 1.71x  (± 0.00) slower
+
